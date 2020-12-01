@@ -41,6 +41,7 @@ stages:
         containerRegistry: 'msdemoacr'
         repository: 'frontend'
         command: 'push'
+        tags: 'v1'
     - task: HelmDeploy@0
       inputs:
         connectionType: 'Azure Resource Manager'
