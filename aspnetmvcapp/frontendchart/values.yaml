@@ -1,0 +1,2 @@
+replicaCount: 1
+image: msdemoacr.azurecr.io/fronend:1
