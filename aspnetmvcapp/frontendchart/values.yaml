@@ -1,2 +1,2 @@
 replicaCount: 1
-image: msdemoacr.azurecr.io/fronend:v1
+image: msdemoacr.azurecr.io/frontend:v1
