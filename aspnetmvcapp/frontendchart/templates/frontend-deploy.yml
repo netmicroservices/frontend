@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: {{ $fullname := printf "%s-%s" .Release.Name .Chart.Name | trunc 63 | trimSuffix "-" }}
-  name: {{ $fullname }}
+metadata: 
+  name: frontend-deploy
   labels:
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    app: frontend
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - name: {{ .Chart.Name }}
+      - name: frontend-ctr
         image: "{{ .Values.image }}"
         imagePullPolicy: IfNotPresent
         ports:
