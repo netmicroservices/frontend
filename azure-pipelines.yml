@@ -49,6 +49,8 @@ stages:
         azureResourceGroupForACR: 'demorg'
         azureContainerRegistry: 'msdemoacr'
         kubernetesCluster: 'msdemoaks'
+        azureResourceGroup: 'demorg'
+        azureSubscription: 'Visual Studio Ultimate with MSDN(920bf6fd-ffb7-4d82-8202-4298a532d21d)'
         command: 'install'
         chartType: 'FilePath'
         chartPath: '**/frontendchart'
