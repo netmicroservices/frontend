@@ -29,11 +29,14 @@ stages:
       inputs:
         containerRegistry: 'msdemoacr'
         command: 'login'
-    
     - task: Docker@2
-      displayName: Build an image
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/aspnetmvcapp/Dockerfile'
-        tags: |
-          $(tag)
+       containerRegistry: 'msdemoacr'
+       repository: 'frontend'
+       command: 'build'
+       Dockerfile: '**/Dockerfile'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'msdemoacr'
+        repository: 'frontend'
+        command: 'push'
