@@ -1,0 +1,42 @@
+# Docker
+# Build a Docker image 
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: NuGetCommand@2
+      inputs:
+        command: 'restore'
+        restoreSolution: '**/*.sln'
+        feedsToUse: 'select'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'msdemoacr'
+        command: 'login'
+    - task: Docker@2
+      inputs:
+       containerRegistry: 'msdemoacr'
+       repository: 'frontend'
+       command: 'build'
+       Dockerfile: '**/Dockerfile'
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'msdemoacr'
+        repository: 'frontend'
+        command: 'push'
