@@ -35,8 +35,20 @@ stages:
        repository: 'frontend'
        command: 'build'
        Dockerfile: '**/Dockerfile'
+       tags: 'v1'
     - task: Docker@2
       inputs:
         containerRegistry: 'msdemoacr'
         repository: 'frontend'
         command: 'push'
+    - task: HelmDeploy@0
+      inputs:
+        connectionType: 'Azure Resource Manager'
+        azureSubscriptionForACR: 'Visual Studio Ultimate with MSDN(920bf6fd-ffb7-4d82-8202-4298a532d21d)'
+        azureResourceGroupForACR: 'demorg'
+        azureContainerRegistry: 'msdemoacr'
+        kubernetesCluster: 'msdemoaks'
+        command: 'install'
+        chartType: 'FilePath'
+        chartPath: '**/frontendchart'
+    
