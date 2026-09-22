@@ -1,31 +1,30 @@
-﻿@{
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Frontend</h1>
+    <p class="lead">This frontend application provides the web experience for the .NET Microservices sample environment.</p>
+    <p><a href="@Url.Action("About", "Home")" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Overview</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Explore the MVC frontend that can be packaged into Docker images and deployed with the
+            Helm chart included in this repository.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="@Url.Action("About", "Home")">About the app &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Deployment</h2>
+        <p>Build the application into a container image and deploy it to Kubernetes with the repository's frontend Helm chart.</p>
+        <p><a class="btn btn-default" href="https://github.com/netmicroservices/frontend/tree/main/aspnetmvcapp/frontendchart">View chart &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Support</h2>
+        <p>Need help or want to report a problem? Use the repository issue tracker to share details with the maintainers.</p>
+        <p><a class="btn btn-default" href="https://github.com/netmicroservices/frontend/issues">Open issues &raquo;</a></p>
     </div>
 </div>

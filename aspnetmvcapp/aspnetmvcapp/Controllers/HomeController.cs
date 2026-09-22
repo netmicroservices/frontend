@@ -15,14 +15,14 @@ namespace aspnetmvcapp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Learn more about the frontend application.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Get help with the frontend application.";
 
             return View();
         }
